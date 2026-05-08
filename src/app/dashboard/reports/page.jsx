@@ -43,6 +43,11 @@ export default function ReportsPage() {
     return matchesTab && matchesSearch;
   });
 
+  const getCount = (tab) => {
+    if (tab === "All") return demoData.length;
+    return demoData.filter(item => item.status === tab).length;
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -69,13 +74,19 @@ export default function ReportsPage() {
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={cn(
-              "px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap transition-all border",
+              "px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap transition-all border flex items-center gap-2",
               activeTab === tab 
                 ? "bg-blue-600 text-white border-blue-500 glow-blue" 
                 : "bg-white/5 text-slate-400 border-white/5 hover:border-white/10 hover:text-white"
             )}
           >
             {tab}
+            <span className={cn(
+              "px-1.5 py-0.5 rounded-md text-[10px] font-black",
+              activeTab === tab ? "bg-white/20 text-white" : "bg-white/5 text-slate-500"
+            )}>
+              {getCount(tab)}
+            </span>
           </button>
         ))}
       </div>

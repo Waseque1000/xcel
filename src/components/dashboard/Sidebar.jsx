@@ -41,25 +41,27 @@ export default function Sidebar({ collapsed, setCollapsed }) {
       className="fixed left-0 top-0 bottom-0 z-40 bg-white border-r border-slate-100 flex flex-col"
     >
       {/* Logo Area */}
-      <div className="p-8 flex items-center justify-between">
-        {!collapsed && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex items-center gap-2"
-          >
-            <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-blue-100">
-              <Database className="text-white w-4 h-4" />
+      <Link href="/" className="p-8 block">
+        <div className="flex items-center justify-between">
+          {!collapsed && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex items-center gap-2"
+            >
+              <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-blue-100">
+                <Database className="text-white w-4 h-4" />
+              </div>
+              <span className="font-bold text-lg tracking-tight text-slate-900 whitespace-nowrap">DataMatch <span className="text-blue-600">Pro</span></span>
+            </motion.div>
+          )}
+          {collapsed && (
+            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mx-auto shadow-lg shadow-blue-100">
+              <Database className="text-white w-6 h-6" />
             </div>
-            <span className="font-bold text-lg tracking-tight text-slate-900 whitespace-nowrap">DataMatch <span className="text-blue-600">Pro</span></span>
-          </motion.div>
-        )}
-        {collapsed && (
-          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mx-auto shadow-lg shadow-blue-100">
-            <Database className="text-white w-6 h-6" />
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      </Link>
 
       {/* Navigation */}
       <nav className="flex-1 px-4 py-8 space-y-1">
