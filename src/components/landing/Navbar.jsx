@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Database, Menu, X, ArrowRight, Github, ChevronDown } from "lucide-react";
+import { Database, Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
